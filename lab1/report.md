@@ -16,8 +16,9 @@
 - Sequence Diagram: см. [docs/sequence.md](docs/sequence.md)
 - Flowchart: см. [docs/flowchart.md](docs/flowchart.md)
 
-## Демонстрация diff
-
+## Демонстрация diffСкриншоты:
+- Текстовый diff: ![Diff XML](docs/diff_xml.png)
+- Бинарный diff (stat): ![Diff Binary](docs/diff_bin.png)
 Для `.bpmn` (текстовый XML) Git показывает построчный diff — видно,
 какие именно строки добавлены или удалены. Для `.png` (бинарный файл)
 Git выводит только «Binary files differ», без деталей. Это наглядно
