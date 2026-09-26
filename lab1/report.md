@@ -15,21 +15,24 @@
 - UML Activity: ![UML Activity](diagrams/activity-uml.png)
 - Sequence Diagram: см. [docs/sequence.md](docs/sequence.md)
 - Flowchart: см. [docs/flowchart.md](docs/flowchart.md)
-
-## Демонстрация diffСкриншоты:
-- Текстовый diff: ![Diff XML](docs/diff_xml.png)
 - Бинарный diff (stat): ![Diff Binary](docs/diff_bin.png)
 Для `.bpmn` (текстовый XML) Git показывает построчный diff — видно,
 какие именно строки добавлены или удалены. Для `.png` (бинарный файл)
 Git выводит только «Binary files differ», без деталей. Это наглядно
 показывает разницу между текстовыми и бинарными форматами при
 версионировании.
+## Демонстрация diff
 
-## Выводы
+Чтобы показать разницу между текстовыми и бинарными форматами при версионировании, я внесла изменение в BPMN-диаграмму: добавила задачу «Отправка SMS-уведомления» и две новые sequence flow. После этого выполнила `git diff`.
 
-В ходе работы я настроила SSH-доступ к GitHub, освоила базовые команды
-Git (clone, add, commit, push, diff, log) и научилась работать с
-визуальными нотациями BPMN, UML Activity, Sequence и Flowchart.
-Главный практический вывод — текстовые форматы удобны для
-версионирования (видно каждое изменение), а бинарные нужно хранить
-вместе с исходниками и перегенерировать при изменениях.
+Для `.bpmn` (текстовый XML) Git показал построчный diff — видно конкретные добавленные строки XML. Для `.png` (бинарный файл) Git не может сравнить содержимое и выводит только «Binary files differ».
+
+### Скриншоты
+
+Бинарный diff (`.png`):
+
+![Diff Binary](docs/diff_bin.png)
+
+Текстовый diff (`.bpmn`):
+
+![Diff XML](docs/diff_xml.png)
