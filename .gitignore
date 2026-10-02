@@ -1,1 +1,11 @@
-Не удается инициализировать устройство PRN
+# Р›РѕРіРё
+*.log
+
+# OS
+Thumbs.db
+.DS_Store
+Desktop.ini
+
+# IDE
+.vscode/
+.idea/
