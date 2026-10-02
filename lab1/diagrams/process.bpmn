@@ -12,7 +12,7 @@
       <bpmn:incoming>Flow_15j217q</bpmn:incoming>
       <bpmn:outgoing>Flow_0b76dm3</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:task id="Activity_10r31ie" name="Договор">
+    <bpmn:task id="Activity_10r31ie" name="Договоры">
       <bpmn:outgoing>Flow_0arfgt3</bpmn:outgoing>
     </bpmn:task>
     <bpmn:task id="Activity_052bgvt" name="Проверка андеррайтера">
