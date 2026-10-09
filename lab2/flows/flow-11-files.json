@@ -1,0 +1,133 @@
+[
+    {
+        "id": "f87d7c7819d60df1",
+        "type": "inject",
+        "z": "bf6f85d0325bd823",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "9",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 360,
+        "wires": [
+            [
+                "d2952aef4ef04de3"
+            ]
+        ]
+    },
+    {
+        "id": "d2952aef4ef04de3",
+        "type": "function",
+        "z": "bf6f85d0325bd823",
+        "name": "function 4",
+        "func": "const data = {\n    student: \"Ковалевская\",\n    lab: 2,\n    timestamp: new Date().toISOString(),\n    value: Math.floor(Math.random() * 500)\n};\nmsg.payload = JSON.stringify(data);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 360,
+        "wires": [
+            [
+                "682c595dd9621d46"
+            ]
+        ]
+    },
+    {
+        "id": "682c595dd9621d46",
+        "type": "file",
+        "z": "bf6f85d0325bd823",
+        "name": "",
+        "filename": "C:/Users/Lenovo/Desktop/lab2-data-kovalovskaya.json",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "utf8",
+        "x": 600,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "128f333fa6c62c36",
+        "type": "file in",
+        "z": "bf6f85d0325bd823",
+        "name": "",
+        "filename": "C:/Users/Lenovo/Desktop/lab2-data-kovalovskaya.json",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "utf8",
+        "allProps": false,
+        "x": 460,
+        "y": 440,
+        "wires": [
+            [
+                "6b14890d2a83c6aa"
+            ]
+        ]
+    },
+    {
+        "id": "06c7d66402ae7a55",
+        "type": "inject",
+        "z": "bf6f85d0325bd823",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 440,
+        "wires": [
+            [
+                "128f333fa6c62c36"
+            ]
+        ]
+    },
+    {
+        "id": "6b14890d2a83c6aa",
+        "type": "debug",
+        "z": "bf6f85d0325bd823",
+        "name": "debug 9",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 560,
+        "wires": []
+    }
+]
