@@ -1,0 +1,88 @@
+[
+    {
+        "id": "93f81b014b624b11",
+        "type": "inject",
+        "z": "ec6a3d7dfe122a36",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "3",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 190,
+        "y": 360,
+        "wires": [
+            [
+                "947c180a1e5a90e7"
+            ]
+        ]
+    },
+    {
+        "id": "947c180a1e5a90e7",
+        "type": "function",
+        "z": "ec6a3d7dfe122a36",
+        "name": "function 5",
+        "func": "let counter = flow.get(\"counter_kovalovskaya\") || 0;\ncounter = counter + 1;\n\nif (counter >= 3) {\n    flow.set(\"counter_kovalovskaya\", 0);\n    msg.payload = {\n        action: \"limit_reached\",\n        message: \"Достигнут лимит (3)! Счётчик сброшен.\",\n        counter: counter,\n        timestamp: new Date().toISOString()\n    };\n    return [null, msg];\n}\n\nflow.set(\"counter_kovalovskaya\", counter);\nmsg.payload = {\n    action: \"increment\",\n    counter: counter,\n    message: \"Счётчик увеличен\",\n    timestamp: new Date().toISOString()\n};\nreturn [msg, null];",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 360,
+        "wires": [
+            [
+                "f6a98a143622c0ee"
+            ],
+            [
+                "cd1101bcb20b332f"
+            ]
+        ]
+    },
+    {
+        "id": "f6a98a143622c0ee",
+        "type": "debug",
+        "z": "ec6a3d7dfe122a36",
+        "name": "debug 10",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "cd1101bcb20b332f",
+        "type": "debug",
+        "z": "ec6a3d7dfe122a36",
+        "name": "debug 11",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 420,
+        "wires": []
+    }
+]
