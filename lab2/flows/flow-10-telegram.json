@@ -1,0 +1,131 @@
+[
+    {
+        "id": "b32fcfb4c44cbb84",
+        "type": "telegram command",
+        "z": "0227d7c86a6fdf37",
+        "name": "",
+        "command": "/start",
+        "description": "Стартовая команда",
+        "registercommand": true,
+        "language": "ru",
+        "scope": "default",
+        "bot": "0b701da25c8f145f",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 130,
+        "y": 320,
+        "wires": [
+            [
+                "a31665dbe291a119"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "a31665dbe291a119",
+        "type": "telegram sender",
+        "z": "0227d7c86a6fdf37",
+        "name": "start reply",
+        "bot": "0b701da25c8f145f",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 440,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "adca3379c9f8cc1b",
+        "type": "telegram receiver",
+        "z": "0227d7c86a6fdf37",
+        "name": "echo",
+        "bot": "0b701da25c8f145f",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "hasinput": false,
+        "inputs": 0,
+        "handleallupdates": false,
+        "handleprocessupdates": false,
+        "x": 130,
+        "y": 440,
+        "wires": [
+            [
+                "0b999984f979744b"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "0b999984f979744b",
+        "type": "function",
+        "z": "0227d7c86a6fdf37",
+        "name": "function 3",
+        "func": "const text = msg.payload.content;\nmsg.payload = {\n    chatId: msg.payload.chatId,\n    type: \"message\",\n    content: \"Получено: \" + text + \" (бот Ковалевской)\"\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 440,
+        "wires": [
+            [
+                "d781626db53633df"
+            ]
+        ]
+    },
+    {
+        "id": "d781626db53633df",
+        "type": "telegram sender",
+        "z": "0227d7c86a6fdf37",
+        "name": "echo",
+        "bot": "0b701da25c8f145f",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 470,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0b701da25c8f145f",
+        "type": "telegram bot",
+        "botname": "tvl_lab2_kovalevskaya_bot",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "testenvironment": false,
+        "updatemode": "polling",
+        "pollinterval": 300,
+        "usesocks": false,
+        "sockshost": "",
+        "socksprotocol": "socks5",
+        "socksport": 6667,
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbothost": "0.0.0.0",
+        "localbotport": 8443,
+        "publicbotport": 8443,
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    },
+    {
+        "id": "102fc04319c2e409",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-contrib-telegrambot": "19.0.3"
+        }
+    }
+]
