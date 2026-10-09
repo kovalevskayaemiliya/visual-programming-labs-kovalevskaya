@@ -1,0 +1,66 @@
+[
+    {
+        "id": "d67252642e7014a8",
+        "type": "inject",
+        "z": "d3f21941f46897f2",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "lab2/Ковалевская/template",
+        "payload": "{\"name\": \"Ковалевская\", \"group\": \"ИВТ\", \"lab\": 2}",
+        "payloadType": "json",
+        "x": 140,
+        "y": 260,
+        "wires": [
+            [
+                "c7f93c9f9e315d27"
+            ]
+        ]
+    },
+    {
+        "id": "c7f93c9f9e315d27",
+        "type": "template",
+        "z": "d3f21941f46897f2",
+        "name": "lab2/Ковалевская/template",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "Студент: {{payload.name}}\nГруппа: {{payload.group}}\nЛабораторная: №{{payload.lab}}",
+        "output": "str",
+        "x": 400,
+        "y": 260,
+        "wires": [
+            [
+                "7d4b1bbfdf45fca0"
+            ]
+        ]
+    },
+    {
+        "id": "7d4b1bbfdf45fca0",
+        "type": "debug",
+        "z": "d3f21941f46897f2",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 260,
+        "wires": []
+    }
+]
