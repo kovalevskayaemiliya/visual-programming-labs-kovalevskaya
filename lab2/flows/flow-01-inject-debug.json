@@ -1,0 +1,48 @@
+[
+    {
+        "id": "463c5f1793dad53c",
+        "type": "inject",
+        "z": "6d70eeacfe748d14",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "lab2/Ковалевская/basic",
+        "payload": "Ковалевская",
+        "payloadType": "str",
+        "x": 120,
+        "y": 140,
+        "wires": [
+            [
+                "bdafdb1baf9711ee"
+            ]
+        ]
+    },
+    {
+        "id": "bdafdb1baf9711ee",
+        "type": "debug",
+        "z": "6d70eeacfe748d14",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 300,
+        "y": 140,
+        "wires": []
+    }
+]
