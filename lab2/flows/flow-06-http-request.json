@@ -1,0 +1,71 @@
+[
+    {
+        "id": "5a0135e50ddbb1e2",
+        "type": "inject",
+        "z": "c6617b87186c0eb9",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 260,
+        "y": 420,
+        "wires": [
+            [
+                "ed3e82acb6b9dc95"
+            ]
+        ]
+    },
+    {
+        "id": "ed3e82acb6b9dc95",
+        "type": "http request",
+        "z": "c6617b87186c0eb9",
+        "name": "lab2/Ковалевская/http",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "https://dogapi.dog/api/v2/facts",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 500,
+        "y": 420,
+        "wires": [
+            [
+                "79b196984e7c2161"
+            ]
+        ]
+    },
+    {
+        "id": "79b196984e7c2161",
+        "type": "debug",
+        "z": "c6617b87186c0eb9",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 420,
+        "wires": []
+    }
+]
