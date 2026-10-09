@@ -1,0 +1,162 @@
+[
+    {
+        "id": "c2c1928c0747a1ca",
+        "type": "http in",
+        "z": "c4ae1e9a50d696ec",
+        "name": "GET /api/text",
+        "url": "/api/text",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 170,
+        "y": 320,
+        "wires": [
+            [
+                "9e2c6f8e02b3af43"
+            ]
+        ]
+    },
+    {
+        "id": "9e2c6f8e02b3af43",
+        "type": "template",
+        "z": "c4ae1e9a50d696ec",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "Привет! Это простой текстовый ответ из Node-RED. Студент: Ковалевская.",
+        "output": "str",
+        "x": 340,
+        "y": 320,
+        "wires": [
+            [
+                "5c3c739a612160d6"
+            ]
+        ]
+    },
+    {
+        "id": "5c3c739a612160d6",
+        "type": "http response",
+        "z": "c4ae1e9a50d696ec",
+        "name": "",
+        "statusCode": "200",
+        "headers": {},
+        "x": 500,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "c38218b38bbb6a01",
+        "type": "http in",
+        "z": "c4ae1e9a50d696ec",
+        "name": "GET/api/info",
+        "url": "/api/info",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 190,
+        "y": 420,
+        "wires": [
+            [
+                "a54f76b29f6c423a"
+            ]
+        ]
+    },
+    {
+        "id": "3a7d51ed322b2e24",
+        "type": "http response",
+        "z": "c4ae1e9a50d696ec",
+        "name": "",
+        "statusCode": "200",
+        "headers": {},
+        "x": 520,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "a54f76b29f6c423a",
+        "type": "function",
+        "z": "c4ae1e9a50d696ec",
+        "name": "function 1",
+        "func": "msg.payload = { student: \"Ковалевская\", lab: 2, status: \"OK\" }; return msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 420,
+        "wires": [
+            [
+                "3a7d51ed322b2e24"
+            ]
+        ]
+    },
+    {
+        "id": "828b5f5b761fa143",
+        "type": "http in",
+        "z": "c4ae1e9a50d696ec",
+        "name": "GET/api/items/:id",
+        "url": "/api/items/:id",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 520,
+        "wires": [
+            [
+                "b5449aedb04bf0e2"
+            ]
+        ]
+    },
+    {
+        "id": "b5449aedb04bf0e2",
+        "type": "function",
+        "z": "c4ae1e9a50d696ec",
+        "name": "function 2",
+        "func": "const id = msg.req.params.id;\nconst limit = parseInt(msg.req.query.limit) || 10;\nif (isNaN(id)) {\n    msg.statusCode = 400;\n    msg.payload = { status: \"error\", message: \"ID must be a number\", code: 400 };\n    return [null, msg];\n}\nif (parseInt(id) > 100) {\n    msg.statusCode = 404;\n    msg.payload = { status: \"error\", message: \"Item not found\", code: 404 };\n    return [null, msg];\n}\nmsg.payload = { status: \"success\", itemId: parseInt(id), limit: limit, items: [{ id: parseInt(id), name: \"Item \" + id }] };\nreturn [msg, null];",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 520,
+        "wires": [
+            [
+                "823febb1b88aeaee"
+            ],
+            [
+                "8ac1767a8be91f46"
+            ]
+        ]
+    },
+    {
+        "id": "823febb1b88aeaee",
+        "type": "http response",
+        "z": "c4ae1e9a50d696ec",
+        "name": "",
+        "statusCode": "200",
+        "headers": {},
+        "x": 520,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "8ac1767a8be91f46",
+        "type": "http response",
+        "z": "c4ae1e9a50d696ec",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 530,
+        "y": 560,
+        "wires": []
+    }
+]
