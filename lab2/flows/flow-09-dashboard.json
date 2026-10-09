@@ -1,0 +1,151 @@
+[
+    {
+        "id": "7b14f890243322a4",
+        "type": "inject",
+        "z": "c7d6def3e84569a4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "3",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 260,
+        "wires": [
+            [
+                "46d26e75e69f53e3"
+            ]
+        ]
+    },
+    {
+        "id": "46d26e75e69f53e3",
+        "type": "function",
+        "z": "c7d6def3e84569a4",
+        "name": "function (humidity sensor)",
+        "func": "const humidity = (Math.random() * 40 + 30).toFixed(2);\nmsg.payload = parseFloat(humidity);\nmsg.topic = \"humidity\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 260,
+        "wires": [
+            [
+                "1783ea6943ce9fd5",
+                "5770015b4e2d470d"
+            ]
+        ]
+    },
+    {
+        "id": "1783ea6943ce9fd5",
+        "type": "ui_gauge",
+        "z": "c7d6def3e84569a4",
+        "name": "Humidity Gauge",
+        "group": "cf9f451c0a133245",
+        "order": 0,
+        "width": "4",
+        "height": "4",
+        "gtype": "gage",
+        "title": "Влажность",
+        "label": "%",
+        "format": "{{value}}",
+        "min": "30",
+        "max": "70",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 620,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "5770015b4e2d470d",
+        "type": "ui_chart",
+        "z": "c7d6def3e84569a4",
+        "name": "Humidity Chart",
+        "group": "cf9f451c0a133245",
+        "order": 1,
+        "width": "6",
+        "height": "6",
+        "label": "Влажность (история)",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "30",
+        "ymax": "70",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 620,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cf9f451c0a133245",
+        "type": "ui_group",
+        "name": "Датчик влажности",
+        "tab": "6061671fb1c87e8a",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "6061671fb1c87e8a",
+        "type": "ui_tab",
+        "name": "Лабораторная 2",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "6ef828c6e8ea8cde",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6"
+        }
+    }
+]
