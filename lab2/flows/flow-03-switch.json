@@ -1,0 +1,115 @@
+[
+    {
+        "id": "589c0352d51b80a5",
+        "type": "inject",
+        "z": "079f5b0cd4b61dc1",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 160,
+        "wires": [
+            [
+                "1d82fdc815b1055c"
+            ]
+        ]
+    },
+    {
+        "id": "0e38803ef8c22ff0",
+        "type": "debug",
+        "z": "079f5b0cd4b61dc1",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 900,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "9e489b4de80528cd",
+        "type": "debug",
+        "z": "079f5b0cd4b61dc1",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 900,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "b801f00f89b9e238",
+        "type": "switch",
+        "z": "079f5b0cd4b61dc1",
+        "name": "",
+        "property": "payload.product",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "100000",
+                "vt": "str"
+            },
+            {
+                "t": "lte",
+                "v": "100000",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 630,
+        "y": 160,
+        "wires": [
+            [
+                "0e38803ef8c22ff0",
+                "9e489b4de80528cd"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "1d82fdc815b1055c",
+        "type": "function",
+        "z": "079f5b0cd4b61dc1",
+        "name": "lab2/kovalevskaya/function",
+        "func": "const numbers = [5, 12, 8, 30, 15];\nlet product = 1;\nfor (let i = 0; i < numbers.length; i++) { product *= numbers[i]; }\nlet message;\nif (product > 100000) { message = \"Произведение большое\"; } else { message = \"Произведение небольшое\"; }\nmsg.payload = {\n    originalArray: numbers,\n    product: product,\n    message: message,\n    timestamp: new Date().toISOString()\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 160,
+        "wires": [
+            [
+                "b801f00f89b9e238"
+            ]
+        ]
+    }
+]
