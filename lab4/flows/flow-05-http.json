@@ -1,0 +1,80 @@
+{
+  "name": "My workflow 5",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "e19f3fac-6fa1-46b9-a05f-a523960ae1cd",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "url": "https://catfact.ninja/fact",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        224,
+        0
+      ],
+      "id": "965a468d-f732-4051-b5a3-57e93fca88fa",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Получаем все данные из предыдущего узла (HTTP Request)\nconst data = $input.all();\n\n// Выводим в консоль полный ответ от API\nconsole.log(\"Ответ от API:\");\nconsole.log(JSON.stringify(data, null, 2));\n\n// Возвращаем данные для дальнейшей работы\nreturn data;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        448,
+        0
+      ],
+      "id": "b210d241-34e5-462c-9972-9112ba2f5d92",
+      "name": "Code in JavaScript"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "63385c65-5460-493b-8f64-34cf1602fe00",
+  "meta": {
+    "instanceId": "6d19aa20dcd46770897af5b6936b78de683960da8386d40875c1cbb17883048c"
+  },
+  "nodeGroups": [],
+  "id": "4lTJTcL0zHl30ys2",
+  "tags": []
+}
