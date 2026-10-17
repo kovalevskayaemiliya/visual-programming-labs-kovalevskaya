@@ -1,0 +1,64 @@
+{
+  "name": "My workflow 6",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 1
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        0,
+        0
+      ],
+      "id": "38bf2630-0903-4e50-91f5-2d7830329e02",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Получаем текущую дату и время\nconst now = new Date();\n\n// Возвращаем объект с текущим временем\nreturn {\n  currentTime: now.toISOString(),\n  message: \"Workflow запущен по расписанию для Ковалевской!\"\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        224,
+        0
+      ],
+      "id": "0b957457-79e3-43fe-9ef3-c626daea17fd",
+      "name": "Code in JavaScript"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "30f39ee8-49fa-444d-bce6-debde818bafc",
+  "meta": {
+    "instanceId": "6d19aa20dcd46770897af5b6936b78de683960da8386d40875c1cbb17883048c"
+  },
+  "nodeGroups": [],
+  "id": "c3S0BOC9Goj6AT7t",
+  "tags": []
+}
