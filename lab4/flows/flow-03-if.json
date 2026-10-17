@@ -1,0 +1,139 @@
+{
+  "name": "My workflow 3",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "0ad1a9c9-63a0-4e31-9f35-7f96786d6cf3",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "jsCode": "// 1. Используем let и const\nlet counter = 0;\nconst myArray = [\"Минск\", \"Гродно\", \"Брест\"];\nconst myObject = {\n  name: \"Ковалевская\",\n  group: \"ТВП\",\n  lab: 4\n};\n\n// 2. Используем цикл for\nfor (let i = 0; i < myArray.length; i++) {\n  counter++;\n  console.log(`Город ${i}: ${myArray[i]}`);\n}\n\n// 3. Используем if/else\nlet message = \"\";\nif (counter > 2) {\n  message = \"Много городов\";\n} else {\n  message = \"Мало городов\";\n}\n\n// 4. Возвращаем объект с полем payload\nreturn {\n  payload: {\n    count: counter,\n    cities: myArray,\n    info: myObject,\n    status: message\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        224,
+        0
+      ],
+      "id": "a00d6ff8-dbbe-4774-8e36-fb0ca85760d5",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "859d4e81-5842-4b6f-9479-170c847eee65",
+              "leftValue": "={{ $json.payload.count }}",
+              "rightValue": 2,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        448,
+        0
+      ],
+      "id": "797a9fee-f479-4d64-98c9-019534f86db1",
+      "name": "If"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        672,
+        -96
+      ],
+      "id": "cf55aaf7-f821-4b88-9110-d7db7e8f6eb9",
+      "name": "No Operation, do nothing"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        672,
+        96
+      ],
+      "id": "105e6c61-aaeb-4ee5-a850-a21527a5c969",
+      "name": "No Operation, do nothing1"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "8bd62ade-9dba-4187-9b21-c898efea73d2",
+  "meta": {
+    "instanceId": "6d19aa20dcd46770897af5b6936b78de683960da8386d40875c1cbb17883048c"
+  },
+  "nodeGroups": [],
+  "id": "SnR8zBUbdb9tRuio",
+  "tags": []
+}
