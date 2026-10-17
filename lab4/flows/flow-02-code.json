@@ -1,0 +1,77 @@
+{
+  "name": "My workflow 2",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -80,
+        0
+      ],
+      "id": "c01b948f-bea7-4f23-8ce3-00a75772f4e3",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "jsCode": "// 1. Используем let и const\nlet counter = 0;\nconst myArray = [\"Минск\", \"Гродно\", \"Брест\"];\nconst myObject = {\n  name: \"Ковалевская\",\n  group: \"ТВП\",\n  lab: 4\n};\n\n// 2. Используем цикл for\nfor (let i = 0; i < myArray.length; i++) {\n  counter++;\n  console.log(`Город ${i}: ${myArray[i]}`);\n}\n\n// 3. Используем if/else\nlet message = \"\";\nif (counter > 2) {\n  message = \"Много городов\";\n} else {\n  message = \"Мало городов\";\n}\n\n// 4. Возвращаем объект с полем payload\nreturn {\n  payload: {\n    count: counter,\n    cities: myArray,\n    info: myObject,\n    status: message\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        128,
+        0
+      ],
+      "id": "c07732ab-eb99-4626-9ea5-fc56f1263862",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        352,
+        0
+      ],
+      "id": "5753716d-eede-4289-9a41-03a58735973b",
+      "name": "No Operation, do nothing"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "eeb75fda-fe05-4bc3-bb68-42fcdda112a1",
+  "meta": {
+    "instanceId": "6d19aa20dcd46770897af5b6936b78de683960da8386d40875c1cbb17883048c"
+  },
+  "nodeGroups": [],
+  "id": "T47DdGo84duQZYKH",
+  "tags": []
+}
