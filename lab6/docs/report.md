@@ -44,29 +44,29 @@
 ### Часть 1. Базовое приложение «Приветствие»
 
 **Настройка проекта:**
-![Настройки проекта 1](screenshots/01-project-settings.png)
-![Настройки проекта 2](screenshots/02-project-settings_2.png)
+![Настройки проекта 1](/lab6/screenshots/01-project-settings.png)
+![Настройки проекта 2](/lab6/screenshots/02-project-settings_2.png)
 
 **Дизайн Screen1 и логика:**
-![Дизайн Screen1](screenshots/03-designer-ui.jpg)
-![Блоки базовой логики](screenshots/04-blocks-base.jpg)
+![Дизайн Screen1](/lab6/screenshots/03-designer-ui.jpg)
+![Блоки базовой логики](/lab6/screenshots/04-blocks-base.jpg)
 
 **Результат работы приложения:**
-![Тестирование приветствия](screenshots/05-app-testing.jpg)
+![Тестирование приветствия](/lab6/screenshots/05-app-testing.jpg)
 
 ### Часть 2. Ачивка 10: Простой калькулятор
 
 **Дизайн Screen1 (кнопка перехода) и Screen2 (калькулятор):**
-![Кнопка на Screen1](screenshots/06-screen1-calc-btn.jpg)
-![Дизайн Screen2](screenshots/07-screen2-design.jpg)
+![Кнопка на Screen1](/lab6/screenshots/06-screen1-calc-btn.jpg)
+![Дизайн Screen2](/lab6/screenshots/07-screen2-design.jpg)
 
 **Логика навигации и вычислений:**
-![Блоки Screen1 - навигация](screenshots/08-blocks-screen1-nav.jpg)
-![Блоки Screen2 - математика](screenshots/09-blocks-calculator.jpg)
+![Блоки Screen1 - навигация](/lab6/screenshots/08-blocks-screen1-nav.jpg)
+![Блоки Screen2 - математика](/lab6/screenshots/09-blocks-calculator.jpg)
 
 **Тестирование калькулятора (сложение и вычитание):**
-![Калькулятор - сложение](screenshots/10-calc-test-add.jpg)
-![Калькулятор - вычитание](screenshots/11-calc-test-add.jpg)
+![Калькулятор - сложение](/lab6/screenshots/10-calc-test-add.jpg)
+![Калькулятор - вычитание](/lab6/screenshots/11-calc-test-add.jpg)
 *(Примечание: на втором скриншоте показан результат вычитания -2)*
 
 ## 6. Ограничения бесплатного тарифа Kodular
