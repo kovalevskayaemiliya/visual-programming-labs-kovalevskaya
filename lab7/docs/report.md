@@ -70,25 +70,25 @@
 ## 6. Скриншоты
 
 ### Главная страница и сущности
-![01-main-page](screenshots/01-main-page.png)
-![02-entity-stages](screenshots/02-entity-stages.png)
-![03-entity-races](screenshots/03-entity-races.png)
-![03a-entity-races](screenshots/03a-entity-races.png)
-![04-entity-pilots](screenshots/04-entity-pilots.png)
-![05-entity-results](screenshots/05-entity-results.png)
+![01-main-page](/lab7/screenshots/01-main-page.png)
+![02-entity-stages](/lab7/screenshots/02-entity-stages.png)
+![03-entity-races](/lab7/screenshots/03-entity-races.png)
+![03a-entity-races](/lab7/screenshots/03a-entity-races.png)
+![04-entity-pilots](/lab7/screenshots/04-entity-pilots.png)
+![05-entity-results](/lab7/screenshots/05-entity-results.png)
 
 ### Представления и кнопки
-![06-view-calendar](screenshots/06-view-calendar.png)
-![07-button-settings](screenshots/07-button-settings.png)
-![08-button-result](screenshots/08-button-result.png)
+![06-view-calendar](/lab7/screenshots/06-view-calendar.png)
+![07-button-settings](/lab7/screenshots/07-button-settings.png)
+![08-button-result](/lab7/screenshots/08-button-result.png)
 
 ### Ачивка: Шаблоны записей
-![09-achievement-template](screenshots/09-achievement-template.png)
+![09-achievement-template](/lab7/screenshots/09-achievement-template.png)
 
 ### Публикация и формулы
-![10-publish-link](screenshots/10-publish-link.png)
-![11-formula-points](screenshots/11-formula-points.png)
-![12-formula-distance](screenshots/12-formula-distance.png)
+![10-publish-link](/lab7/screenshots/10-publish-link.png)
+![11-formula-points](/lab7/screenshots/11-formula-points.png)
+![12-formula-distance](/lab7/screenshots/12-formula-distance.png)
 
 ## 7. Выводы
 
